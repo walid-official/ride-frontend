@@ -1,0 +1,134 @@
+import App from "@/App";
+import DashboardLayout from "@/components/layout/DashboardLayout";
+import role from "@/constants/role";
+import About from "@/pages/public/navbar/About";
+import Home from "@/pages/public/navbar/Home";
+import Login from "@/pages/public/auth/Login";
+import Register from "@/pages/public/auth/Register";
+import Unauthorized from "@/pages/public/error/Unauthorized";
+import Verify from "@/pages/public/auth/Verify";
+import Error from "@/pages/public/error/Error";
+import generateRoutes from "@/utils/generateRoutes";
+import withAuth from "@/utils/withAuth";
+import { createBrowserRouter, Navigate } from "react-router";
+import adminSidebarItems from "./admin/adminSidebar";
+import driverSidebarItems from "./driver/driverSidebar";
+import userSidebarItems from "./user/userSidebar";
+import RideDetails from "@/components/modules/user/rideHistory/RideDetails";
+import Contact from "@/pages/public/error/Contact";
+import NotFound from "@/pages/public/error/NotFound";
+import Features from "@/pages/public/navbar/Features";
+import ContactUs from "@/pages/public/navbar/ContactUs";
+import FAQ from "@/pages/public/navbar/FAQ";
+
+const Router = createBrowserRouter([
+  // Common layout
+  {
+    path: "/",
+    Component: App,
+    // If any error occurs while resolving this route (or its children), show Error
+    errorElement: <Error />,
+    children: [
+      {
+        index: true,
+        Component: Home,
+      },
+      {
+        path: "about",
+        Component: About,
+      },
+      {
+        path: "features",
+        Component: Features,
+      },
+      {
+        path: "contact-us",
+        Component: ContactUs,
+      },
+      {
+        path: "faq",
+        Component: FAQ,
+      },
+    ],
+  },
+
+  // Admin dashboard
+  {
+    path: "/admin",
+    Component: withAuth(DashboardLayout, [role.ADMIN]),
+    errorElement: <Error />,
+    children: [
+      { index: true, element: <Navigate to={"/admin/analytics"} /> },
+      ...generateRoutes(adminSidebarItems),
+      {
+        path: "ride/:id",
+        Component: RideDetails,
+      },
+    ],
+  },
+
+  // Driver dashboard
+  {
+    path: "/driver",
+    Component: withAuth(DashboardLayout, [role.DRIVER]),
+    errorElement: <Error />,
+    children: [
+      { index: true, element: <Navigate to={"/driver/earnings"} /> },
+      ...generateRoutes(driverSidebarItems),
+      {
+        path: "ride/:id",
+        Component: RideDetails,
+      },
+    ],
+  },
+
+  // User dashboard
+  {
+    path: "/user",
+    Component: withAuth(DashboardLayout, [role.RIDER]),
+    errorElement: <Error />,
+    children: [
+      { index: true, element: <Navigate to={"/user/ride-request"} /> },
+      ...generateRoutes(userSidebarItems),
+
+      {
+        path: "ride/:id",
+        Component: RideDetails,
+      },
+    ],
+  },
+
+  // Auth
+  {
+    path: "login",
+    Component: Login,
+  },
+  {
+    path: "register",
+    Component: Register,
+  },
+  {
+    path: "verify",
+    Component: Verify,
+  },
+
+  // Handle errors
+  {
+    path: "unauthorized",
+    Component: Unauthorized,
+    errorElement: <Error />,
+  },
+  {
+    path: "contact",
+    Component: Contact,
+    errorElement: <Error />,
+  },
+
+  // Catch-all: render Error for any unmatched route (404)
+  {
+    path: "*",
+    Component: NotFound,
+  },
+]);
+
+export default Router;
