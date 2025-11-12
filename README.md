@@ -1,8 +1,8 @@
 <div align="center">
-  <img
+  <!-- <img
     src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12&height=200&section=header&text=Velocia%20Frontend&fontSize=50&fontAlignY=35&animation=fadeIn&desc=Modern%20Transportation%20Platform%20Interface&descAlignY=55&descSize=18"
     alt="Header"
-  />
+  /> -->
 </div>
 
 <div align="center">
@@ -664,28 +664,7 @@ URL = "https://velocia-official.vercel.app/";
 
 // Server Side
 URL = "https://velocia-api.vercel.app/";
-```
 
----
-
-## 🌟 **Author**
-
-<div align="center">
-  <a href="https://github.com/zahid-official">
-    <img src="https://github.com/zahid-official.png" width="150" height="150" style="border-radius: 50%;" alt="Zahid Official" />
-  </a>
-  
-  <h3>Zahid Official</h3>
-  <p><b>Web Developer | Tech Enthusiast</b></p>
-  
-  [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/zahid-official)
-  [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/zahid-web)
-  [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:zahid.official8@gmail.com)
-  
-  <p>Built with passion and dedication to create scalable solutions</p>
-</div>
-
----
 
 ## 🤝 **Contributing**
 
