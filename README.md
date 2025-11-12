@@ -642,44 +642,6 @@ Add these in your Vercel dashboard:
 
 ---
 
-## 🔄 **API Integration**
-
-The frontend integrates with the Velocia Backend API. See the [Backend Documentation](https://github.com/zahid-official/milestone-17-server) for API details.
-
-### **Base URL Configuration**
-
-```typescript
-// Development
-const API_URL = "http://localhost:5000/api/v1";
-
-// Production
-const API_URL = "https://velocia-api.vercel.app/api/v1";
-```
-
-### **Live Overview URL**
-
-```typescript
-// Client Side
-URL = "https://velocia-official.vercel.app/";
-
-// Server Side
-URL = "https://velocia-api.vercel.app/";
-
-
-## 🤝 **Contributing**
-
-Contributions make the open source community amazing! Any contributions you make are **greatly appreciated**.
-
-```bash
-1. Fork the Project
-2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
-3. Commit your Changes (git commit -m 'Add some AmazingFeature')
-4. Push to the Branch (git push origin feature/AmazingFeature)
-5. Open a Pull Request
-```
-
-</br>
-
 <div align="center">
   
 Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for more information.
